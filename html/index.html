@@ -23,8 +23,10 @@
     <script>
       $(function () {
         var socket = io();
+	var nickname;
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
+	  $('#messages').append($('<li>').text($('#m').val()));
           $('#m').val('');
           return false;
         });

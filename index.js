@@ -23,7 +23,7 @@ io.on('connection', function(socket){
 			greet = "Thanks "+nickname+", now you can talk";
 			socket.emit('chat message', greet);
 		} else {
-			io.emit('chat message', nickname+":\n"+msg);
+			socket.broadcast.emit('chat message', nickname+': '+msg);
 		}
 	});
 });
